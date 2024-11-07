@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            margin: 0 4rem;
+        }
+        .c{
+            display: flex;
+            flex: 1;
+        }
+        .c1{
+            padding: 1rem;
+            border: 3px solid black;
+            margin: 3rem;
+        }
+    </style>
+    <div class="c">
+        <div class="c1">0</div>
+        <div class="c1">1</div>
+        <div class="c1">2</div>
+        <div class="c1">3</div>
+        <div class="c1">4</div>
+        <div class="c1">5</div>
+        <div class="c1">6</div>
+        <div class="c1">7</div>
+        <div class="c1">8</div>
+        <div class="c1">9</div>
+        <div class="c1">10</div>
+    </div>
+
+    <button class="evens"> evens</button>
+    <button class="odds"> odds</button>
+    <button class="z"> all except 2</button>
+
+    <script>
+        $('.evens').on('click',() => {
+            $('.c1:even').css('background-color','red');
+            $('.c1:first').text('First with jq');
+            $('.c1:nth-child(5)').text('fifth');
+        })
+
+        $('.odds').on('click',() => {
+            $('.c1:odd').css('background-color','pink');
+            $('.c1:last').text('last with jq');
+            $('.c1:nth-child(1)').text('one');
+        })
+
+
+        $('.z').on('click',() => {
+            $('.c1:not(:eq(2))').css('background-color', 'gray');
+        })
+
+        
+    </script>
+</body>
+</html>

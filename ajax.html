@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="containor" id="one"></div>
+    <button id="click">Click me </button>
+    <script>
+
+        document.querySelector('#click').addEventListener('click',f1);
+
+        function f1(){
+            const xhr = new XMLHttpRequest();
+            xhr.open('get','https://jsonplaceholder.typicode.com/posts');
+            xhr.send();
+            xhr.onreadystatechange = () =>{
+                let s = xhr.readyState;
+                console.log(`state changed ${s}`);
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    const address = document.querySelector('#one');
+                    const childe = document.createElement('h1');
+                    const jsArray = JSON.parse(xhr.responseText);
+                    for(let i =0; i < 10; i++){
+                        childe.innerHTML += `id is ${jsArray[i].id} and title is : ${jsArray[i].title} <br>`;  
+                    }
+                    address.appendChild(childe);
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>
